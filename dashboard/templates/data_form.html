@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+<!-- Crispy Forms -->
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+    <h5 class="text-center">
+        <strong><i class="fas fa-plus"></i>&nbsp;>&nbsp; Add Resources</strong>
+    </h5>
+    <hr>
+    <form method="POST" autocomplete="off">
+        {% csrf_token %}
+        {{ forms.name|as_crispy_field}}
+        {{ forms.link|as_crispy_field}}
+        {{ forms.tags|as_crispy_field}}
+        {{ forms.format|as_crispy_field}}
+        {{ forms.difficulty|as_crispy_field}}
+        {{ forms.time|as_crispy_field}}
+
+        <div class="mt-5">
+            <hr>
+            <button type="submit" class="btn btn-warning btn-width">Submit</button>
+            <button type="submit" class="btn btn-secondary ms-2 btn-width">Reset</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}

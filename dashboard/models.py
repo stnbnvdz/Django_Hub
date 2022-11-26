@@ -19,10 +19,15 @@ TIME = (
     ('it takes days', 'it takes days'),
 )
 
+FORMAT = (
+    ('Written', 'Written'),
+    ('Video', 'Video'),
+)
+
 class DjangoHub(models.Model):
     name = models.ForeignKey(NameOfTutorial, on_delete=models.CASCADE)
     link = models.CharField(max_length=500)
     tags = models.CharField(max_length=100)
-    format = models.CharField(max_length=25)
+    format = models.CharField(max_length=50, null=True, choices=FORMAT)
     difficulty = models.CharField(max_length=50, null=True, choices=DIFFICULTY)
     time = models.CharField(max_length=50, null=True, choices=TIME)
