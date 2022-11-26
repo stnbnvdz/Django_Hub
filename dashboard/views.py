@@ -3,10 +3,10 @@ from .models import DjangoHub
 from .forms import ResourcesForm
 
 def data_read(request):
-    context = {'data_read':DjangoHub.objects.all()},
+    context = {'data_read':DjangoHub.objects.all()}
     return render(request, "data_read.html", context)
 
-def data_form(request, id= None):
+def data_form(request, id = None):
     if request.method == POST:
         if id == None:
             form = ResourcesForm(request.POST)
