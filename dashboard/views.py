@@ -7,7 +7,7 @@ def data_read(request):
     return render(request, "data_read.html", context)
 
 def data_form(request, id = None):
-    if request.method == POST:
+    if request.method == "POST":
         if id == None:
             form = ResourcesForm(request.POST)
         else:
@@ -16,7 +16,6 @@ def data_form(request, id = None):
         if form.is_valid():
             form.save()
         return redirect('/data')
-
     else:
         if id == None:
             form = ResourcesForm()
@@ -25,7 +24,7 @@ def data_form(request, id = None):
             form = ResourcesForm(instance = resources )
         return render(request, "data_form.html", {'form':form})
 
-def data_delete(request, candidate_id):
+def data_delete(request, resources_id):
     resources = DjangoHub.objects.get(id = resources_id)
     resources.delete()
     return redirect('/data')
