@@ -11,12 +11,12 @@
     <hr>
     <form method="POST" autocomplete="off">
         {% csrf_token %}
-        {{ forms.name|as_crispy_field}}
-        {{ forms.link|as_crispy_field}}
-        {{ forms.tags|as_crispy_field}}
-        {{ forms.format|as_crispy_field}}
-        {{ forms.difficulty|as_crispy_field}}
-        {{ forms.time|as_crispy_field}}
+        {{ form.name|as_crispy_field }}
+        {{ form.link|as_crispy_field }}
+        {{ form.tags|as_crispy_field }}
+        {{ form.format|as_crispy_field }}
+        {{ form.difficulty|as_crispy_field }}
+        {{ form.time|as_crispy_field }}
 
         <div class="mt-5">
             <hr>

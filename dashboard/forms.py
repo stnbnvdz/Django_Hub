@@ -12,13 +12,13 @@ class ResourcesForm(forms.ModelForm):
         }
 
         widget = {
-            'name': forms.TimeInput(attrs={'placeholder': 'Name'}),
-            'link': forms.TimeInput(attrs={'placeholder': 'Link'}),
-            'tags': forms.TimeInput(attrs={'placeholder': 'Tags'}),
+            'name': forms.TimeInput(attrs={'placeholder' : 'Name'}),
+            'link': forms.TimeInput(attrs={'placeholder' : 'Link'}),
+            'tags': forms.TimeInput(attrs={'placeholder' : 'Tags'}),
         }
 
-    def __init__(self, args, **kwargs):
-        super(ResourcesForm, self) .__init__(*args, **kwargs)
-        self.field['format'].choices = "Select format"
-        self.field['difficulty'].choices = "Select difficulty"
-        self.field['time'].choices = "Select time"
+    def __init__(self, *args, **kwargs):
+        super(ResourcesForm, self).__init__(*args, **kwargs)
+        self.fields['format'].choices = "Select format"
+        self.fields['difficulty'].choices = "Select difficulty"
+        self.fields['time'].choices = "Select time"
